@@ -128,15 +128,32 @@ if (-not $defaultBranch) {
 Write-Host ""
 Write-Host "Configuring credential helper..." -ForegroundColor Yellow
 
+# Check Git version and available credential helpers
+$gitVersion = git --version
+$helperSet = $false
+
 # Try to use Git Credential Manager (modern approach)
 try {
-    $gitVersion = git --version
-    git config --global credential.helper manager
-    Write-Host "[OK] Credential helper set to Git Credential Manager" -ForegroundColor Green
+    # Test if manager credential helper is available
+    $testResult = git credential-manager --version 2>&1
+    if ($LASTEXITCODE -eq 0 -or $testResult -match "credential") {
+        git config --global credential.helper manager
+        Write-Host "[OK] Credential helper set to Git Credential Manager" -ForegroundColor Green
+        $helperSet = $true
+    }
 } catch {
-    # Fallback to wincred for older systems
-    git config --global credential.helper wincred
-    Write-Host "[OK] Credential helper set to Windows Credential Manager (wincred)" -ForegroundColor Green
+    # Git Credential Manager not available
+}
+
+# Fallback to wincred if manager is not available
+if (-not $helperSet) {
+    try {
+        git config --global credential.helper wincred
+        Write-Host "[OK] Credential helper set to Windows Credential Manager (wincred)" -ForegroundColor Green
+        Write-Host "[INFO] Consider installing Git Credential Manager for enhanced security" -ForegroundColor Yellow
+    } catch {
+        Write-Host "[WARNING] Could not configure credential helper" -ForegroundColor Yellow
+    }
 }
 
 # Configure line endings
