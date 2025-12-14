@@ -4,7 +4,7 @@
 param(
     [switch]$SecurityMode = $true,
     [switch]$InstallMQL5 = $false,
-    [string]$LogPath = "$env:TEMP\window-setup.log"
+    [string]$LogPath = "$env:TEMP\windows-setup.log"
 )
 
 function Write-Log {

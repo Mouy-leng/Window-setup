@@ -76,7 +76,7 @@ function Test-FileIntegrity {
             # Check for recently modified files
             $recentlyModified = $files | Where-Object { $_.LastWriteTime -gt (Get-Date).AddMinutes(-5) }
             if ($recentlyModified) {
-                Write-SecurityLog "Recently modified files in $path : $($recentlyModified.Count)" "WARNING"
+                Write-SecurityLog "Recently modified files in $path: $($recentlyModified.Count)" "WARNING"
             }
         }
     }

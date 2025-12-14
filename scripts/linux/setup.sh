@@ -4,7 +4,7 @@
 
 SECURITY_MODE=true
 INSTALL_MQL5=false
-LOG_PATH="/tmp/window-setup.log"
+LOG_PATH="/tmp/linux-setup.log"
 
 log_message() {
     timestamp=$(date "+%Y-%m-%d %H:%M:%S")

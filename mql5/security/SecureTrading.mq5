@@ -1,7 +1,7 @@
 //+------------------------------------------------------------------+
-//|                                          SecureTrading.mq5       |
-//|                                  Security-Enhanced Trading EA    |
-//|                          For secure local and remote execution   |
+//|                                             SecureTrading.mq5    |
+//|                                     Security-Enhanced Trading EA |
+//|                             For secure local and remote execution|
 //+------------------------------------------------------------------+
 #property copyright "Window-Setup Security"
 #property link      "https://github.com/Mouy-leng/Window-setup"
