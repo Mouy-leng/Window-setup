@@ -1,0 +1,40 @@
+# Security sensitive files
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.local
+secrets.txt
+credentials.txt
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# GPG keys
+*.gpg
+*.asc
+
+# GitHub tokens
+github_token.txt
+.github_token
+
+# Personal Access Tokens
+*.token
+pat.txt
+
+# VSCode/Cursor workspace settings with secrets
+.vscode/settings.local.json
+.cursor/settings.local.json
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Backup files
+*.bak
+*.backup

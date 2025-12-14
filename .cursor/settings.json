@@ -1,0 +1,25 @@
+{
+  "security.workspace.trust.enabled": true,
+  "security.workspace.trust.startupPrompt": "always",
+  "security.workspace.trust.emptyWindow": false,
+  
+  "cursor.privacy.enableTelemetry": false,
+  "cursor.privacy.shareData": false,
+  
+  "git.confirmSync": true,
+  "git.enableCommitSigning": true,
+  "git.autofetch": false,
+  "git.confirmEmptyCommits": true,
+  
+  "files.exclude": {
+    "**/.git": true,
+    "**/.env": true,
+    "**/*.key": true,
+    "**/*.pem": true,
+    "**/*.token": true
+  },
+  
+  "terminal.integrated.enablePersistentSessions": false,
+  
+  "telemetry.telemetryLevel": "off"
+}
