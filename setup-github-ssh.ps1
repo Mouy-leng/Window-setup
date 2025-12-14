@@ -67,8 +67,14 @@ Write-Host "You will be prompted to enter a passphrase (recommended for security
 Write-Host ""
 
 try {
-    # Run ssh-keygen
-    $process = Start-Process -FilePath "ssh-keygen" -ArgumentList "-t $(if ($keyType -eq '1') {'ed25519'} else {'rsa'})", "-b $(if ($keyType -eq '2') {'4096'})", "-C `"$email`"", "-f `"$keyFile`"" -NoNewWindow -Wait -PassThru
+    # Run ssh-keygen with appropriate parameters based on key type
+    if ($keyType -eq "1") {
+        # Ed25519 doesn't use -b parameter
+        $process = Start-Process -FilePath "ssh-keygen" -ArgumentList "-t", "ed25519", "-C", "`"$email`"", "-f", "`"$keyFile`"" -NoNewWindow -Wait -PassThru
+    } else {
+        # RSA uses -b parameter for bit length
+        $process = Start-Process -FilePath "ssh-keygen" -ArgumentList "-t", "rsa", "-b", "4096", "-C", "`"$email`"", "-f", "`"$keyFile`"" -NoNewWindow -Wait -PassThru
+    }
     
     if ($process.ExitCode -eq 0) {
         Write-Host "[OK] SSH key generated successfully" -ForegroundColor Green

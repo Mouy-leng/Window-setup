@@ -194,17 +194,12 @@ Common issues and solutions for Windows security setup, GitHub integration, VSCo
 **Problem**: GPG commits hang or fail silently
 
 **Solutions**:
-1. Configure GPG TTY:
-   ```powershell
-   $env:GPG_TTY = "$(tty)"
-   ```
-
-2. Use gpg-agent for caching:
+1. Use gpg-agent for caching:
    ```powershell
    gpg-connect-agent /bye
    ```
 
-3. Set pinentry program in `gpg-agent.conf`:
+2. Set pinentry program in `gpg-agent.conf`:
    ```
    pinentry-program "C:\Program Files (x86)\GnuPG\bin\pinentry.exe"
    ```

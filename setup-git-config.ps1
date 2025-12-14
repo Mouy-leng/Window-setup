@@ -152,9 +152,6 @@ git config --global core.pager "less -F -X"
 # Enable push safety
 git config --global push.default simple
 
-# Confirm sync
-git config --global git.confirmSync true
-
 Write-Host "[OK] Security settings applied" -ForegroundColor Green
 
 # Summary

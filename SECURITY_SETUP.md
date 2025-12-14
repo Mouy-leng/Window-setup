@@ -195,11 +195,11 @@ git config --global user.email
 # Prevent accidental commits to main/master
 git config --global init.defaultBranch main
 
-# Enable credential caching
-git config --global credential.helper cache
+# Enable credential storage (Windows)
+git config --global credential.helper wincred
 
-# Set credential cache timeout (in seconds)
-git config --global credential.helper 'cache --timeout=3600'
+# Or use Git Credential Manager (recommended)
+git config --global credential.helper manager
 ```
 
 ---

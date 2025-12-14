@@ -238,7 +238,7 @@ Write-Host "Security Check Complete" -ForegroundColor Cyan
 Write-Host "======================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Yellow
-Write-Host "1. Run .\scripts\setup-github-ssh.ps1 to configure GitHub SSH" -ForegroundColor Gray
-Write-Host "2. Run .\scripts\setup-github-gpg.ps1 to configure GPG signing" -ForegroundColor Gray
+Write-Host "1. Run .\setup-github-ssh.ps1 to configure GitHub SSH" -ForegroundColor Gray
+Write-Host "2. Run .\setup-github-gpg.ps1 to configure GPG signing" -ForegroundColor Gray
 Write-Host "3. Review SECURITY_SETUP.md for detailed instructions" -ForegroundColor Gray
 Write-Host ""

@@ -129,27 +129,11 @@ Write-Host "Starting GPG key generation..." -ForegroundColor Yellow
 Write-Host "This may take a few moments..." -ForegroundColor Gray
 Write-Host ""
 
-# Create batch file for unattended key generation
-$batchContent = @"
-%echo Generating GPG key
-Key-Type: RSA
-Key-Length: 4096
-Subkey-Type: RSA
-Subkey-Length: 4096
-Name-Real: $name
-Name-Email: $email
-Expire-Date: 1y
-%no-protection
-%commit
-%echo Done
-"@
-
-$batchFile = "$env:TEMP\gpg-batch-$([guid]::NewGuid().ToString()).txt"
-$batchContent | Out-File -FilePath $batchFile -Encoding ASCII
-
 try {
-    # Interactive generation is more reliable
+    # Interactive generation is recommended for security (prompts for passphrase)
     Write-Host "Please follow the GPG prompts:" -ForegroundColor Yellow
+    Write-Host "IMPORTANT: You will be asked to set a passphrase - choose a strong one!" -ForegroundColor Red
+    Write-Host ""
     gpg --full-generate-key
     
     # Get the newly created key
@@ -230,11 +214,6 @@ try {
 } catch {
     Write-Host "[ERROR] Failed to generate GPG key: $_" -ForegroundColor Red
     exit 1
-} finally {
-    # Clean up batch file
-    if (Test-Path $batchFile) {
-        Remove-Item $batchFile -Force
-    }
 }
 
 Write-Host ""
