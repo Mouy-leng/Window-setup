@@ -42,7 +42,7 @@ function Update-WindowsDefender {
         Update-MpSignature
         Write-Host "[OK] Windows Defender signatures updated" -ForegroundColor Green
     } catch {
-        Write-Host "[ERROR] Failed to update Windows Defender: $_" -ForegroundColor Red
+        Write-Host "[ERROR] Failed to update Windows Defender: $($_.Message)" -ForegroundColor Red
     }
 }
 
