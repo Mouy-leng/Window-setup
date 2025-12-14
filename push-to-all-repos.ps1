@@ -50,13 +50,13 @@ try {
 
 # Step 3: Get all remotes
 Write-Host "[3/5] Getting repository list..." -ForegroundColor Yellow
-$remotes = git remote -v | Select-String -Pattern "\(push\)" | ForEach-Object {
-    $line = $_.Line
-    if ($line -match "(\w+)\s+(https://[^\s]+)\s+\(push\)") {
-        [PSCustomObject]@{
-            Name = $matches[1]
-            URL = $matches[2]
-        }
+$remoteNames = git remote
+$remotes = @()
+foreach ($remoteName in $remoteNames) {
+    $remoteUrl = git remote get-url $remoteName
+    $remotes += [PSCustomObject]@{
+        Name = $remoteName
+        URL = $remoteUrl
     }
 }
 
