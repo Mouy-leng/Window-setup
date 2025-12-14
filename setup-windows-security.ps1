@@ -59,7 +59,7 @@ function Test-Firewall {
             }
         }
     } catch {
-        Write-Host "[ERROR] Could not check firewall status: $_" -ForegroundColor Red
+        Write-Host "[ERROR] Could not check firewall status: $($_.Message)" -ForegroundColor Red
     }
 }
 
