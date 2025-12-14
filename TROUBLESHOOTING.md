@@ -229,14 +229,14 @@ Common issues and solutions for Windows security setup, GitHub integration, VSCo
 **Problem**: Git repeatedly asks for credentials
 
 **Solutions**:
-1. Configure Windows Credential Manager:
-   ```powershell
-   git config --global credential.helper wincred
-   ```
-
-2. Or use Git Credential Manager:
+1. Configure Git Credential Manager (recommended):
    ```powershell
    git config --global credential.helper manager
+   ```
+
+2. Or use Windows Credential Manager (wincred) for older systems:
+   ```powershell
+   git config --global credential.helper wincred
    ```
 
 3. Clear stored credentials if they're wrong:

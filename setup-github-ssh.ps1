@@ -68,13 +68,17 @@ Write-Host ""
 
 try {
     # Run ssh-keygen with appropriate parameters based on key type
+    $commonArgs = @("-C", "`"$email`"", "-f", "`"$keyFile`"")
+    
     if ($keyType -eq "1") {
         # Ed25519 doesn't use -b parameter
-        $process = Start-Process -FilePath "ssh-keygen" -ArgumentList "-t", "ed25519", "-C", "`"$email`"", "-f", "`"$keyFile`"" -NoNewWindow -Wait -PassThru
+        $keyArgs = @("-t", "ed25519") + $commonArgs
     } else {
         # RSA uses -b parameter for bit length
-        $process = Start-Process -FilePath "ssh-keygen" -ArgumentList "-t", "rsa", "-b", "4096", "-C", "`"$email`"", "-f", "`"$keyFile`"" -NoNewWindow -Wait -PassThru
+        $keyArgs = @("-t", "rsa", "-b", "4096") + $commonArgs
     }
+    
+    $process = Start-Process -FilePath "ssh-keygen" -ArgumentList $keyArgs -NoNewWindow -Wait -PassThru
     
     if ($process.ExitCode -eq 0) {
         Write-Host "[OK] SSH key generated successfully" -ForegroundColor Green

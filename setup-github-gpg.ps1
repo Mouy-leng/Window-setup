@@ -144,8 +144,8 @@ try {
     $newKeys = gpg --list-secret-keys --keyid-format=long $email 2>&1
     Write-Host $newKeys -ForegroundColor Gray
     
-    # Extract key ID
-    $keyIdMatch = $newKeys -match "sec\s+rsa\d+/([A-F0-9]+)"
+    # Extract key ID (supports various key algorithms)
+    $keyIdMatch = $newKeys -match "sec\s+\w+\d*/([A-F0-9]+)"
     if ($Matches -and $Matches[1]) {
         $keyId = $Matches[1]
         Write-Host ""

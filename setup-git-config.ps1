@@ -127,8 +127,17 @@ if (-not $defaultBranch) {
 # Configure credential helper
 Write-Host ""
 Write-Host "Configuring credential helper..." -ForegroundColor Yellow
-git config --global credential.helper wincred
-Write-Host "[OK] Credential helper set to Windows Credential Manager" -ForegroundColor Green
+
+# Try to use Git Credential Manager (modern approach)
+try {
+    $gitVersion = git --version
+    git config --global credential.helper manager
+    Write-Host "[OK] Credential helper set to Git Credential Manager" -ForegroundColor Green
+} catch {
+    # Fallback to wincred for older systems
+    git config --global credential.helper wincred
+    Write-Host "[OK] Credential helper set to Windows Credential Manager (wincred)" -ForegroundColor Green
+}
 
 # Configure line endings
 Write-Host ""
