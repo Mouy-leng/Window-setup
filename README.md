@@ -1,9 +1,74 @@
-# Windows Setup Scripts
+# A6-9V Project Repository - Complete Device Setup
 
-Complete Windows configuration scripts for setting up cloud sync, security, and system settings.
+This repository contains the complete device skeleton structure, project blueprints, and setup scripts for the NuNa Windows 11 automation system.
 
-## Features
+## 📁 Project Structure
 
+```
+.
+├── .cursor/                          # Cursor IDE Configuration
+│   └── rules/                        # AI Assistant Rules
+├── Scripts/                          # PowerShell Automation Scripts
+│   ├── Setup Scripts/
+│   ├── Git Scripts/
+│   ├── Security Scripts/
+│   ├── GitHub Desktop Scripts/
+│   └── Utility Scripts/
+├── Documentation/                    # Project Documentation
+│   ├── DEVICE-SKELETON.md           # Complete device structure
+│   ├── PROJECT-BLUEPRINTS.md         # Project blueprints
+│   ├── SYSTEM-INFO.md               # System specifications
+│   ├── WORKSPACE-SETUP.md           # Workspace setup guide
+│   └── SET-REPOS-PRIVATE.md         # Instructions for private repos
+├── projects/                         # Active development projects
+│   ├── Google AI Studio/            # AI Studio related projects
+│   └── LiteWriter/                  # LiteWriter application
+├── project-scanner/                  # Project Discovery & Execution System
+├── system-setup/                     # System Configuration & Optimization
+├── storage-management/               # Storage and drive management tools
+├── Document,sheed,PDF, PICTURE/     # Documentation and media
+├── Secrets/                          # Protected credentials (not tracked in git)
+└── TECHNO POVA 6 PRO/                # Device-specific files
+```
+
+## 🚀 Quick Start
+
+### Complete Device Setup
+
+Run the comprehensive device setup script:
+
+```powershell
+# Run as Administrator
+.\complete-device-setup.ps1
+```
+
+This will set up:
+- ✅ Workspace structure
+- ✅ Windows configuration
+- ✅ Cloud sync services
+- ✅ Git repositories
+- ✅ Security settings
+- ✅ Cursor rules
+- ✅ All automation projects
+
+### Windows Setup Automation
+
+```powershell
+# Run as Administrator
+.\auto-setup.ps1
+# or
+.\complete-windows-setup.ps1
+```
+
+### Workspace Verification
+
+```powershell
+.\setup-workspace.ps1
+```
+
+## 📋 Features
+
+### Windows Setup Scripts
 - ✅ Configure Windows Account Sync
 - ✅ Set up File Explorer preferences
 - ✅ Configure default browser and apps
@@ -12,184 +77,88 @@ Complete Windows configuration scripts for setting up cloud sync, security, and 
 - ✅ Windows Security (Controlled Folder Access) configuration
 - ✅ Cloud sync service verification (OneDrive, Google Drive, Dropbox)
 
-## Accounts
+### Git Automation
+- ✅ Multi-remote repository support
+- ✅ Automated git operations
+- ✅ Secure credential management
 
-- **Microsoft/Outlook**: <Lengkundee01@outlook.com>
-- **Google/Gmail**: <Lengkundee01@gmail.com>
+### Security Validation
+- ✅ Comprehensive security checks
+- ✅ Token security validation
+- ✅ Script integrity verification
 
-## Quick Start
+### Project Scanner
+- ✅ Scan all local drives for development projects
+- ✅ Discover scripts, applications, and code projects
+- ✅ Execute projects in the background
+- ✅ Generate comprehensive reports
 
-### Run Complete Setup
+### System Setup & Optimization
+- ✅ Drive cleanup and optimization
+- ✅ Drive role assignment and permissions
+- ✅ Registry optimizations
+- ✅ Cursor IDE configuration
+- ✅ MCP (Model Context Protocol) setup
 
-1. **Run as Administrator**: Right-click `complete-windows-setup.ps1` > Run with PowerShell > Run as Administrator
-   - Or use: `RUN-COMPLETE-SETUP.bat`
-   - Or use: `run-setup.ps1`
+## 🔒 Security
 
-2. **Follow the prompts** and let the script configure your system
+Sensitive files including credentials, API keys, certificates, and logs are automatically excluded from version control via `.gitignore`.
 
-3. **Complete manual steps** (see MANUAL-SETUP-GUIDE.md)
+**Protected file types:**
+- `.pem` files (certificates and keys)
+- `.json` credential files
+- `.csv` data exports
+- Log files
+- Screenshots
+- Temporary files
+- Personal directories and media files
 
-### Helper Scripts
+## 📚 Documentation
 
-- `open-settings.ps1` - Opens all necessary Windows Settings windows
-- `check-cloud-services.ps1` - Checks status of cloud sync services
-- `run-cursor-admin.ps1` - Launch Cursor as Administrator
-- `run-vscode-admin.ps1` - Launch VSCode as Administrator
-- `clone-repo.ps1` - Clone this repository using GitHub CLI
-- `github-desktop-setup.ps1` - Configure GitHub Desktop integration
-- `check-github-desktop-updates.ps1` - Check GitHub Desktop version and release notes
+- **DEVICE-SKELETON.md** - Complete device structure blueprint
+- **PROJECT-BLUEPRINTS.md** - Detailed project blueprints
+- **SYSTEM-INFO.md** - System specifications
+- **WORKSPACE-SETUP.md** - Workspace setup guide
+- **AUTOMATION-RULES.md** - Automation patterns
+- **GITHUB-DESKTOP-RULES.md** - GitHub Desktop integration
+- **MANUAL-SETUP-GUIDE.md** - Manual setup instructions
 
-### Security Scripts
+## 🏢 Organization
 
-- `security-check.ps1` - Comprehensive security validation (tokens, scripts, git, Windows)
-- `plugin-protection.ps1` - Plugin and extension security protection
-- `run-security-check.ps1` - Master script to run all security checks
-- `debug-and-save.ps1` - Debug script with security validation
+Managed by **A6-9V** organization for better control and collaboration.
 
-## Files
+## 📝 Accounts
 
-### Main Scripts
+- **Microsoft/Outlook**: Lengkundee01@outlook.com
+- **Google/Gmail**: Lengkundee01@gmail.com
+- **GitHub**: Mouy-leng / A6-9V
 
-- `complete-windows-setup.ps1` - Main setup script (run this)
-- `setup-cloud-sync.ps1` - Cloud sync security configuration
+## 🔧 System Information
 
-### Documentation
-
-- `MANUAL-SETUP-GUIDE.md` - Step-by-step manual configuration guide
-- `SETUP-INSTRUCTIONS.txt` - Setup instructions
-- `AUTOMATION-RULES.md` - Automation rules and best practices
-- `GITHUB-DESKTOP-RULES.md` - GitHub Desktop integration rules
-- `SYSTEM-INFO.md` - System specifications and configuration
-- `DEBUG-SUMMARY.md` - Debug and troubleshooting guide
-- `AGENTS.md` - Cursor AI agent instructions
-- `.cursor/rules/` - Cursor project rules (PowerShell standards, automation patterns, security)
-- `README.md` - This file
-
-## Requirements
-
-- Windows 10/11 (Tested on Windows 11 Home Single Language 25H2)
-- Administrator privileges
-- PowerShell 5.1 or later
-- 64-bit x64-based processor (recommended)
-
-## System Information
-
-- **Current System**: NuNa
+- **Device**: NuNa
 - **OS**: Windows 11 Home Single Language 25H2 (Build 26220.7344)
 - **Processor**: Intel(R) Core(TM) i3-N305 (1.80 GHz)
 - **RAM**: 8.00 GB (7.63 GB usable)
 - **Architecture**: 64-bit x64-based processor
 
-For detailed system information, see `SYSTEM-INFO.md`.
+## 📦 Git Repositories
 
-## Cloud Services
+This workspace is connected to multiple repositories:
 
-The scripts configure security settings for:
+- **Primary**: https://github.com/Mouy-leng/Window-setup.git
+- **Secondary 1**: https://github.com/A6-9V/I-bride_bridges3rd.git
+- **Secondary 2**: https://github.com/A6-9V/my-drive-projects.git
 
-- **OneDrive** (<Lengkundee01@outlook.com>)
-- **Google Drive** (<Lengkundee01@gmail.com>)
-- **Dropbox** (if installed)
+## 🔐 Making Repositories Private
 
-## Usage
+See **SET-REPOS-PRIVATE.md** for instructions on making repositories private.
 
-### Initial Setup
+## 📝 Notes
 
-```powershell
-# Run as Administrator
-.\complete-windows-setup.ps1
-```
-
-### Check Cloud Services
-
-```powershell
-.\check-cloud-services.ps1
-```
-
-### Open Settings
-
-```powershell
-.\open-settings.ps1
-```
-
-### Run Cursor/VSCode as Admin
-
-```powershell
-.\run-cursor-admin.ps1
-.\run-vscode-admin.ps1
-```
-
-### Run Security Checks
-
-```powershell
-# Run all security checks
-.\run-security-check.ps1
-
-# Or run individually
-.\security-check.ps1
-.\plugin-protection.ps1
-```
-
-## Manual Steps Required
-
-After running the setup script, you need to:
-
-1. Sign in to Microsoft account (<Lengkundee01@outlook.com>) in Windows Settings
-2. Sign in to OneDrive with <Lengkundee01@outlook.com>
-3. Sign in to Google Drive with <Lengkundee01@gmail.com>
-4. Sign in to Dropbox (if using)
-5. Configure default apps in Settings > Apps > Default apps
-6. Enable browser sync in Chrome/Edge/Firefox
-7. Verify all cloud services are syncing properly
-
-See `MANUAL-SETUP-GUIDE.md` for detailed instructions.
-
-## Repository
-
-- **GitHub**: <https://github.com/Mouy-leng/Window-setup.git>
-
-### Clone Repository
-
-```bash
-# Using GitHub CLI
-gh repo clone Mouy-leng/Window-setup
-
-# Using Git (HTTPS)
-git clone https://github.com/Mouy-leng/Window-setup.git
-
-# Using GitHub Desktop
-# Download from: <https://desktop.github.com/>
-# File > Clone Repository > <https://github.com/Mouy-leng/Window-setup.git>
-```
-
-### GitHub Desktop Integration
-
-- **Download**: <https://desktop.github.com/>
-- **Release Notes**: <https://desktop.github.com/release-notes/>
-- **Setup Script**: Run `github-desktop-setup.ps1` after installation
-- **Update Check**: Run `check-github-desktop-updates.ps1` to check version and review release notes
-- **Documentation**: See `GITHUB-DESKTOP-RULES.md` for integration rules
-
-## Troubleshooting
-
-### Script won't run
-
-- Make sure you're running as Administrator
-- Check PowerShell execution policy: `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
-
-### Cloud services not found
-
-- Install the services manually:
-
-  - OneDrive: <https://www.microsoft.com/microsoft-365/onedrive/download>
-  - Google Drive: <https://www.google.com/drive/download/>
-  - Dropbox: <https://www.dropbox.com/downloading>
-
-### Sync not working
-
-- Verify you're signed in to each service
-- Check Windows Security exclusions
-- Restart the cloud service
-- Check firewall settings
+- This workspace is synchronized with OneDrive and Google Drive
+- Duplicate files are excluded from version control
+- All sensitive data is gitignored for security
+- Complete device skeleton structure and blueprints included
 
 ## License
 
@@ -197,4 +166,4 @@ This project is for personal use.
 
 ## Author
 
-Lengkundee01
+Lengkundee01 / A6-9V

@@ -39,6 +39,53 @@ documents/
 git-credentials.txt
 .github-token
 
+# Sensitive credentials and keys (from my-drive-projects)
+*.pem
+*.csv
+discovered-projects.json
+execution-summary.json
+*.credentials.json
+*.secrets.json
+rootkey*
+rsa-*
+pk-*
+cert-*
+*key*.csv
+sharp-doodad-*
+flash-student-*
+
+# Secrets directory
+Secrets/
+
+# Project scanner output files (keep config, ignore results)
+log-summary.txt
+logs/
+
+# Temporary files
+*_tmp.*
+qr_tmp.*
+
+# Duplicates (files with (1), (2), etc.)
+* (*).* 
+
+# Google Drive metadata
+*.gdoc
+*.gsheet
+*.gscript
+
+# Screenshots with potential sensitive info
+Screenshot_*.jpg
+Screenshot_*.png
+chrome_qrcode_*.png
+
+# Archives
+*.zip
+
+# Large executables and installers
+*.deb
+*.msi
+*.dmg
+*.pkg
+
 # Cursor (optional - uncomment if you don't want to track Cursor rules)
 # .cursor/
-
