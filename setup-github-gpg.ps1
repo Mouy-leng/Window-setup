@@ -206,6 +206,12 @@ try {
         Write-Host "Run this command to export your private key (keep it secure!):" -ForegroundColor Yellow
         Write-Host "gpg --armor --export-secret-keys $keyId > gpg-private-key-backup.asc" -ForegroundColor Cyan
         Write-Host ""
+        Write-Host "After exporting, please verify that 'gpg-private-key-backup.asc' was created successfully." -ForegroundColor Yellow
+        Write-Host "Move the backup file to secure storage (such as an encrypted USB drive or password manager)." -ForegroundColor Yellow
+        Write-Host "Once you have safely stored your backup, securely delete the file from your computer to prevent unauthorized access." -ForegroundColor Yellow
+        Write-Host "On PowerShell, you can delete the file with:" -ForegroundColor Gray
+        Write-Host "Remove-Item -Path .\\gpg-private-key-backup.asc" -ForegroundColor Cyan
+        Write-Host ""
     } else {
         Write-Host "[WARNING] Could not extract key ID automatically" -ForegroundColor Yellow
         Write-Host "Please run: gpg --list-secret-keys --keyid-format=long" -ForegroundColor Gray
