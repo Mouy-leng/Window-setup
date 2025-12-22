@@ -1,0 +1,103 @@
+{
+  "ai": {
+    "enabled": true,
+    "min_confidence": 0.6,
+    "analysis_interval": 300,
+    "default_timeframe": "H1"
+  },
+  "strategies": {
+    "ml_strategy": {
+      "enabled": true,
+      "min_confidence": 0.65,
+      "weight": 0.5
+    },
+    "technical_strategy": {
+      "enabled": true,
+      "min_confidence": 0.6,
+      "indicators": ["RSI", "MACD", "MA", "Bollinger"],
+      "weight": 0.5
+    }
+  },
+  "risk_management": {
+    "max_risk_per_trade": 1.0,
+    "max_portfolio_risk": 5.0,
+    "min_confidence": 0.6,
+    "dynamic_position_sizing": true
+  },
+  "models": {
+    "price_predictor": {
+      "model_type": "lstm",
+      "prediction_horizon": 24,
+      "retrain_interval": 7
+    },
+    "signal_classifier": {
+      "model_type": "random_forest",
+      "retrain_interval": 7
+    }
+  },
+  "data_collection": {
+    "enabled": true,
+    "collect_historical": true,
+    "collect_realtime": true,
+    "storage_limit_days": 90
+  },
+  "performance": {
+    "track_performance": true,
+    "optimize_parameters": true,
+    "optimization_interval": 30
+  },
+  "symbols": [
+    {
+      "symbol": "EURUSD",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "GBPUSD",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "USDJPY",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "AUDUSD",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "USDCAD",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "NZDUSD",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "EURJPY",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "GBPJPY",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "EURGBP",
+      "enabled": true,
+      "timeframe": "H1"
+    },
+    {
+      "symbol": "USDCHF",
+      "enabled": true,
+      "timeframe": "H1"
+    }
+  ],
+  "default_broker": "EXNESS"
+}
+
