@@ -1,0 +1,3 @@
+[submodule "my-drive-projects"]
+	path = my-drive-projects
+	url = https://github.com/A6-9V/my-drive-projects.git
