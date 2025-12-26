@@ -184,7 +184,6 @@ This workspace is connected to multiple repositories:
 
 - **Primary (origin)**: https://github.com/Mouy-leng/ZOLO-A6-9VxNUNA-.git
 - **Secondary 1 (bridges3rd)**: https://github.com/A6-9V/I-bride_bridges3rd.git
-- **Secondary 2 (drive-projects)**: https://github.com/A6-9V/my-drive-projects.git
 
 ### Git Submodules
 
@@ -193,6 +192,7 @@ The following repositories are integrated as git submodules:
 - **my-drive-projects**: https://github.com/A6-9V/my-drive-projects.git
   - Location: `./my-drive-projects/`
   - Contains drive project files and automation scripts
+  - Also configured as git remote `drive-projects` for push operations
   
 - **OS-Twin**: https://github.com/A6-9V/OS-Twin.git
   - Location: `./OS-Twin/`

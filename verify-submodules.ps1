@@ -79,14 +79,15 @@ Write-Host ""
 # Check 5: Git submodule status
 Write-Host "[5/5] Checking git submodule status..." -ForegroundColor Yellow
 try {
-    $submoduleStatus = git submodule status 2>&1 | Out-String
-    if ($LASTEXITCODE -eq 0) {
+    $submoduleStatus = git submodule status 2>&1
+    $submoduleExitCode = $LASTEXITCODE
+    if ($submoduleExitCode -eq 0) {
         Write-Host "    [OK] Git submodule command successful" -ForegroundColor Green
-        Write-Host $submoduleStatus -ForegroundColor Gray
+        $submoduleStatus | ForEach-Object { Write-Host "    $_" -ForegroundColor Gray }
     } else {
-        $warnings += "Git submodule status had issues: $submoduleStatus"
+        $warnings += "Git submodule status had issues"
         Write-Host "    [WARNING] Git submodule status had issues" -ForegroundColor Yellow
-        Write-Host $submoduleStatus -ForegroundColor Gray
+        $submoduleStatus | ForEach-Object { Write-Host "    $_" -ForegroundColor Gray }
     }
 } catch {
     $warnings += "Error checking git submodule status: $_"

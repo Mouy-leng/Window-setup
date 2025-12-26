@@ -71,7 +71,8 @@ echo ""
 # Check 5: Git submodule status
 echo "[5/5] Checking git submodule status..."
 submodule_output=$(git submodule status 2>&1)
-if [ $? -eq 0 ]; then
+submodule_exit_code=$?
+if [ $submodule_exit_code -eq 0 ]; then
     echo "    [OK] Git submodule command successful"
     echo "$submodule_output" | sed 's/^/    /'
 else
