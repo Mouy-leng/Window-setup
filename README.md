@@ -186,6 +186,19 @@ This workspace is connected to multiple repositories:
 - **Secondary 1 (bridges3rd)**: https://github.com/A6-9V/I-bride_bridges3rd.git
 - **Secondary 2 (drive-projects)**: https://github.com/A6-9V/my-drive-projects.git
 
+### Git Submodules
+
+The following repositories are integrated as git submodules:
+
+- **my-drive-projects**: https://github.com/A6-9V/my-drive-projects.git
+  - Location: `./my-drive-projects/`
+  - Contains drive project files and automation scripts
+  
+- **OS-Twin**: https://github.com/A6-9V/OS-Twin.git
+  - Location: `./OS-Twin/`
+  - Status: Repository placeholder (awaiting repository creation or access)
+  - To initialize once available: `git submodule update --init --recursive`
+
 ## 🔐 Making Repositories Private
 
 See **SET-REPOS-PRIVATE.md** for instructions on making repositories private.

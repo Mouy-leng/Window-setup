@@ -79,6 +79,12 @@ C:\Users\USER\OneDrive\
 │   ├── SETUP-INSTRUCTIONS.txt       # Setup instructions
 │   └── elevate.vbs                  # UAC elevation helper
 │
+├── my-drive-projects/                # Git submodule: Drive Projects Repository
+│   └── [A6-9V/my-drive-projects]    # https://github.com/A6-9V/my-drive-projects.git
+│
+├── OS-Twin/                          # Git submodule: OS Twin Repository
+│   └── [A6-9V/OS-Twin]               # https://github.com/A6-9V/OS-Twin.git (pending)
+│
 └── Security/                         # Security Files (gitignored)
     └── git-credentials.txt           # GitHub credentials (never committed)
 ```
