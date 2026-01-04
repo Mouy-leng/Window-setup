@@ -2,9 +2,19 @@
 
 This document contains the system specifications and configuration for the NuNa device.
 
+## Device Launcher
+
+For quick launch with website functionality, use:
+```batch
+LAUNCH-NUNA-DEVICE.bat
+```
+
+See [NUNA-DEVICE-QUICK-START.md](NUNA-DEVICE-QUICK-START.md) for detailed instructions.
+
 ## Device Information
 
 - **Device Name**: NuNa
+- **Device Model**: Vivobook Go E1504GEB_E1504GA
 - **Device ID**: 32680105-F98A-49B6-803C-8A525771ABA3
 - **Product ID**: 00356-24782-61221-AAOEM
 
