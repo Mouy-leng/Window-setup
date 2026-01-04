@@ -40,6 +40,30 @@ This repository contains the complete device skeleton structure, project bluepri
 
 ## 🚀 Quick Start
 
+### NuNa Device Launcher (Vivobook Go E1504GEB_E1504GA)
+
+Launch the repository with website on the NuNa device:
+
+```batch
+# Double-click the batch file
+LAUNCH-NUNA-DEVICE.bat
+```
+
+Or run in PowerShell:
+
+```powershell
+.\launch-nuna-device.ps1
+```
+
+This will:
+- ✅ Validate NuNa device configuration
+- ✅ Clone/update website repository
+- ✅ Launch website in browser
+- ✅ Start optional local web server
+- ✅ Apply device-specific optimizations
+
+**See**: [NUNA-DEVICE-QUICK-START.md](NUNA-DEVICE-QUICK-START.md) for detailed guide
+
 ### Complete Device Setup
 
 Run the comprehensive device setup script:
@@ -94,6 +118,16 @@ This will:
 ```
 
 ## 📋 Features
+
+### NuNa Device Launcher (Vivobook Go)
+- ✅ Device-specific configuration validation
+- ✅ Automated website repository cloning/updating
+- ✅ Multi-browser support (Edge, Chrome, Firefox)
+- ✅ Optional local web server (Python)
+- ✅ Battery and power management monitoring
+- ✅ Performance optimizations for i3-N305 processor
+- ✅ Memory management for 8GB RAM
+- ✅ Comprehensive logging and error handling
 
 ### Windows Setup Scripts
 - ✅ Configure Windows Account Sync
@@ -151,6 +185,7 @@ Sensitive files including credentials, API keys, certificates, and logs are auto
 
 ## 📚 Documentation
 
+- **NUNA-DEVICE-QUICK-START.md** - NuNa device launcher guide (Vivobook Go)
 - **DEVICE-SKELETON.md** - Complete device structure blueprint
 - **PROJECT-BLUEPRINTS.md** - Detailed project blueprints
 - **SYSTEM-INFO.md** - System specifications
