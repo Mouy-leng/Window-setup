@@ -96,7 +96,7 @@ Write-Host ""
 Write-Status "Launching repository website..."
 
 $websitePath = Join-Path $workspaceRoot "ZOLO-A6-9VxNUNA"
-$websiteURL = "https://github.com/Mouy-leng/ZOLO-A6-9VxNUNA-.git"
+$websiteURL = "https://github.com/Mouy-leng/ZOLO-A6-9VxNUNA.git"
 
 # Clone or update website repository
 if (-not (Test-Path $websitePath)) {
