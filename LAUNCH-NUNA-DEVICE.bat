@@ -21,12 +21,20 @@ echo.
 echo Starting NuNa device launcher...
 echo.
 
-cd /d "C:\Users\USER\OneDrive"
+REM Use environment variable for OneDrive path instead of hardcoded path
+if defined OneDriveConsumer (
+    cd /d "%OneDriveConsumer%"
+) else if defined OneDrive (
+    cd /d "%OneDrive%"
+) else (
+    cd /d "%USERPROFILE%\OneDrive"
+)
 
 REM Check if PowerShell script exists
 if not exist "launch-nuna-device.ps1" (
     echo ERROR: launch-nuna-device.ps1 not found!
     echo Please ensure the script is in the OneDrive folder.
+    echo Current directory: %CD%
     echo.
     pause
     exit /b 1

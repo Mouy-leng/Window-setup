@@ -76,7 +76,8 @@ try {
 Write-Host ""
 
 # Workspace setup
-$workspaceRoot = "C:\Users\USER\OneDrive"
+# Use environment variables for portability across different user accounts
+$workspaceRoot = if ($env:OneDriveConsumer) { $env:OneDriveConsumer } elseif ($env:OneDrive) { $env:OneDrive } else { Join-Path $env:USERPROFILE "OneDrive" }
 $logPath = Join-Path $workspaceRoot "nuna-device-launch.log"
 
 Write-Status "Setting up workspace..."
@@ -102,10 +103,11 @@ if (-not (Test-Path $websitePath)) {
     Write-Status "Cloning website repository..."
     try {
         git clone $websiteURL $websitePath 2>&1 | Out-File -Append $logPath
-        if (Test-Path $websitePath) {
+        # Check if clone was successful
+        if ($LASTEXITCODE -eq 0 -and (Test-Path $websitePath)) {
             Write-Status "Website repository cloned" "SUCCESS"
         } else {
-            Write-Status "Failed to clone website repository" "ERROR"
+            Write-Status "Failed to clone website repository (exit code: $LASTEXITCODE)" "ERROR"
         }
     } catch {
         Write-Status "Error cloning repository: $_" "ERROR"
@@ -114,8 +116,17 @@ if (-not (Test-Path $websitePath)) {
     Write-Status "Updating website repository..."
     try {
         Set-Location $websitePath
-        git pull origin main 2>&1 | Out-File -Append $logPath
-        Write-Status "Website repository updated" "SUCCESS"
+        # Get default branch dynamically
+        $defaultBranch = git symbolic-ref refs/remotes/origin/HEAD 2>$null | ForEach-Object { $_ -replace 'refs/remotes/origin/', '' }
+        if (-not $defaultBranch) {
+            $defaultBranch = "main"  # Fallback to main
+        }
+        git pull origin $defaultBranch 2>&1 | Out-File -Append $logPath
+        if ($LASTEXITCODE -eq 0) {
+            Write-Status "Website repository updated" "SUCCESS"
+        } else {
+            Write-Status "Error updating repository (exit code: $LASTEXITCODE)" "WARNING"
+        }
     } catch {
         Write-Status "Error updating repository: $_" "WARNING"
     }
@@ -202,11 +213,26 @@ if ($pythonPath -and (Test-Path $websitePath)) {
     try {
         Set-Location $websitePath
         
-        # Check if server is already running
-        $existingServer = Get-Process python -ErrorAction SilentlyContinue | 
-            Where-Object { $_.CommandLine -like "*http.server*" }
+        # Check if server is already running on port 8000
+        $portInUse = $false
+        try {
+            $tcpConnection = Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue
+            if ($tcpConnection) {
+                $portInUse = $true
+            }
+        } catch {
+            # Fallback: Try connecting to the port
+            try {
+                $tcpClient = New-Object System.Net.Sockets.TcpClient
+                $tcpClient.Connect("localhost", 8000)
+                $tcpClient.Close()
+                $portInUse = $true
+            } catch {
+                $portInUse = $false
+            }
+        }
         
-        if (-not $existingServer) {
+        if (-not $portInUse) {
             # Start Python HTTP server in background
             $serverProcess = Start-Process python -ArgumentList "-m", "http.server", "8000" `
                 -WindowStyle Hidden -PassThru
@@ -217,7 +243,7 @@ if ($pythonPath -and (Test-Path $websitePath)) {
                 Write-Status "You can also access the site locally in your browser" "INFO"
             }
         } else {
-            Write-Status "Local server already running" "INFO"
+            Write-Status "Local server already running on port 8000" "INFO"
         }
     } catch {
         Write-Status "Could not start local server: $_" "WARNING"
@@ -230,10 +256,12 @@ Write-Host ""
 Write-Status "Applying NuNa device optimizations..."
 
 try {
-    # Set power plan to balanced for better performance/battery balance
-    $powerPlan = powercfg /list | Select-String "Balanced"
-    if ($powerPlan) {
+    # Check active power plan
+    $activePowerPlan = powercfg /getactivescheme
+    if ($activePowerPlan -like "*Balanced*" -or $activePowerPlan -like "*381b4222-f694-41f0-9685-ff5bb260df2e*") {
         Write-Status "Power plan: Balanced (Recommended for Vivobook Go)" "SUCCESS"
+    } else {
+        Write-Status "Power plan: Custom (Active: $activePowerPlan)" "INFO"
     }
     
     # Check battery status

@@ -75,12 +75,17 @@ The launcher includes optimizations for the Vivobook Go E1504GEB_E1504GA:
    - Warns if battery is below 20%
 
 2. **Power Management**
-   - Checks power plan (Balanced recommended)
+   - Checks active power plan (Balanced recommended)
    - Optimized for Intel i3-N305 processor
 
 3. **Memory Management**
    - Optimized for 8GB RAM
    - Efficient resource usage
+
+4. **Portability**
+   - Uses environment variables for OneDrive path
+   - Works across different user accounts
+   - Dynamic default branch detection for git
 
 ## Prerequisites
 
@@ -97,9 +102,17 @@ The launcher includes optimizations for the Vivobook Go E1504GEB_E1504GA:
 ## Troubleshooting
 
 ### Issue: "launch-nuna-device.ps1 not found"
-**Solution**: Ensure you're running the batch file from the correct directory:
-```
-C:\Users\USER\OneDrive\
+**Solution**: The launcher automatically detects your OneDrive path using environment variables. If you get this error:
+1. Ensure you're running from the correct OneDrive directory
+2. The script looks for these paths in order:
+   - `%OneDriveConsumer%`
+   - `%OneDrive%`
+   - `%USERPROFILE%\OneDrive`
+
+You can manually navigate to your OneDrive folder and run the script:
+```powershell
+cd $env:OneDrive
+.\launch-nuna-device.ps1
 ```
 
 ### Issue: "Script execution is disabled"
