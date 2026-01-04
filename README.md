@@ -242,6 +242,8 @@ Sensitive files including credentials, API keys, certificates, and logs are auto
 - **WORKSPACE-SETUP.md** - Workspace setup guide
 
 ### NEW: Autonomous Operation
+- **AUTONOMOUS-OPERATION-GUIDE.md** - Quick start guide for autonomous operation
+- **IMPLEMENTATION-SUMMARY.md** - Detailed implementation documentation
 - **AGENT-STATUS.md** - Real-time agent collaboration status (auto-generated)
 - **REPOSITORY-TREE-MAP.md** - Repository tree structure and mapping (auto-generated)
 - **MAINTENANCE-NOTEBOOK.md** - Maintenance schedule and tasks (auto-generated)
