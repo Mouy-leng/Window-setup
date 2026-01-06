@@ -256,6 +256,9 @@ Sensitive files including credentials, API keys, certificates, and logs are auto
 - **MANUAL-SETUP-GUIDE.md** - Manual setup instructions
 - **SET-REPOS-PRIVATE.md** - Instructions for private repos
 
+### NotebookLM (Manual Capture)
+- **notebooklm/README.md** - Secure, version-control-friendly NotebookLM capture workflow
+
 ## 🏢 Organization
 
 Managed by **A6-9V** organization for better control and collaboration.
